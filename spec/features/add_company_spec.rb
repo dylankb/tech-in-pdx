@@ -9,4 +9,10 @@ describe "the add a company process" do
     click_on "Create Company"
     expect(page).to have_content "Companies"
   end
+
+  it "gives error when no name is entered" do
+    visit new_company_path
+    click_on 'Create Company'
+    expect(page).to have_content 'errors'
+  end
 end
