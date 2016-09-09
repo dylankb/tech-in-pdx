@@ -21,6 +21,20 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
+  def edit
+    @company = Company.find(params[:id])
+  end
+
+  def update
+    @company = Company.find(params[:id])
+    if @company.update(company_params)
+      flash[:notice] = @company.name + " updated!"
+      redirect_to companies_path
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @company = Company.find(params[:id])
     flash[:notice] = @company.name + " deleted!"
