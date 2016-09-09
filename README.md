@@ -1,24 +1,17 @@
-# README
+# TechInPDX
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
 
-Things you may want to cover:
+The TechInPDX app aims to help developers learn about companies using the technologies they know or are interested in.
 
-* Ruby version
+## Setup
 
-* System dependencies
+The app uses Ruby 2.3.1, Rails 5, and Postgres as the database.
 
-* Configuration
+## Tests
 
-* Database creation
+Run `rspec` to run unit and integration tests after making changes.
 
-* Database initialization
+## License
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This software is licensed under the MIT license.
