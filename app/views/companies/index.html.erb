@@ -1,0 +1,12 @@
+<h1>Companies</h1>
+
+<% @companies.each do |company| %>
+  <%= company.name %>
+  <%= company.description %>
+  <%= company.technologies %>
+  <%= company.street_1 %>
+  <%= company.street_2 %>
+  <%= company.city %>
+  <%= company.state %>
+  <%= company.zip %>
+<% end %>
