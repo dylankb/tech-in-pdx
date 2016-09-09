@@ -17,6 +17,17 @@ class CompaniesController < ApplicationController
     @companies = Company.all
   end
 
+  def show
+    @company = Company.find(params[:id])
+  end
+
+  def destroy
+    @company = Company.find(params[:id])
+    flash[:notice] = @company.name + " deleted!"
+    @company.destroy
+    redirect_to companies_path
+  end
+
   def company_params
     params.require(:company).permit(:name, :description, :technologies, :street_1, :street_2, :city, :state, :zip)
   end

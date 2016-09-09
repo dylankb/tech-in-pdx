@@ -1,0 +1,7 @@
+<h1>Admin Panel</h1>
+
+<% @companies.each do |company| %>
+  <%= company.name %>
+  <%= link_to "X", company_path(company),
+                      :data => { :method => :delete } %>
+<% end %>
