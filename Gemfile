@@ -29,7 +29,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'capybara'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bcrypt'
 
@@ -40,6 +39,8 @@ group :development, :test do
   gem 'launchy'
   gem 'pry'
   gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 group :development do
