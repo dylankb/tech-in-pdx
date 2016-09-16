@@ -5,6 +5,8 @@ class CreateUser < ActiveRecord::Migration[5.0]
       t.string :password_hash
       t.string :password_salt
       t.boolean :admin, :default => false
+
+      t.timestamps
     end
   end
 end

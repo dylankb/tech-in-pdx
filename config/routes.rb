@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root :to => "companies#index"
 
-  resources :companies
+  resources :companies do
+    resources :offices
+  end
+
   resources :users
   resources :admin, :only => [:index]
 
