@@ -1,4 +1,7 @@
 class CompaniesController < ApplicationController
+
+  before_action :authenticate_current_user, :only => :new
+
   def new
     @company = Company.new
   end
