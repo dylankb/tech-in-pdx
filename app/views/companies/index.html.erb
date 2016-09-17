@@ -1,14 +1,28 @@
 <h1>Companies</h1>
 
-<ol>
+<table class="table">
+  <thead>
+    <th>Company name</th>
+    <th>Description</th>
+    <th>Technologies</th>
+    <th></th>
+  </thead>
+  <tbody>
   <% @companies.each do |company| %>
-  <li>
-    <%= company.name %> |
-    <%= company.technologies %> |
-    <%= link_to "Details", company_path(company) %>
-  </li>
+    <td>
+      <%= link_to company.name, company_path(company) %>
+    </td>
+    <td>
+      <%= company.description %>
+    </td>
+    <td>
+      <%= company.technologies %>
+    </td>
+    <td>
+      <%= button_to "Edit", edit_company_path(company), {class: 'btn btn-sm', :method => :get} %>
+    <td>
   <% end %>
-</ol>
+</table>
 
 
 <p><%= link_to "Add a company", new_company_path %></p>
