@@ -7,4 +7,9 @@ FactoryGirl.define do
     email('me@home.com')
     password('test')
   end
+
+  factory(:office) do
+    city('Portland')
+    state('OR')
+  end
 end

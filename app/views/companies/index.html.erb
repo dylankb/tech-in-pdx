@@ -5,6 +5,7 @@
     <th>Company name</th>
     <th>Description</th>
     <th>Technologies</th>
+    <th>Locations</th>
     <th></th>
   </thead>
   <tbody>
@@ -17,6 +18,14 @@
     </td>
     <td>
       <%= company.technologies %>
+    </td>
+    <td>
+      <% company.offices.each do |office|%>
+        <div>
+          <span><%= office.city %></span>,
+          <span><%= office.state %></span>
+        </div>
+      <% end %>
     </td>
     <td>
       <%= button_to "Edit", edit_company_path(company), {class: 'btn btn-sm', :method => :get} %>

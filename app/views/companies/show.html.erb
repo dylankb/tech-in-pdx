@@ -5,6 +5,7 @@
     <th>name</th>
     <th>description</th>
     <th>technologies</th>
+    <th>offices</th>
   </thead>
   <tbody>
     <td>
@@ -15,5 +16,13 @@
     </td>
     <td>
       <%= @company.technologies %>
+    </td>
+    <td>
+      <% @company.offices.each do |office| %>
+      <div>
+        <span><%= office.city %></span>,
+        <span><%= office.state %></span>
+      </div>
+      <% end %>
     </td>
 <table>
