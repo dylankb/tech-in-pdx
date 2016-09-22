@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :offices
   end
 
+  resources :companies do
+    resources :technologies
+  end
+
   resources :users
   resources :admin, :only => [:index]
 
