@@ -1,6 +1,6 @@
 <%= render "layouts/errors", :object => @company %>
 
-<%= form_for @company do |f| %>
+<%= form_for @company, remote: true do |f| %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name %>

@@ -6,9 +6,8 @@
     <th>Description</th>
     <th>Technologies</th>
     <th>Locations</th>
-    <th></th>
   </thead>
-  <tbody>
+  <tbody id="company-list">
   <% @companies.each do |company| %>
     <tr>
       <td>
@@ -30,12 +29,8 @@
           </div>
         <% end %>
       </td>
-      <td>
-        <%= button_to "Edit", edit_company_path(company), {class: 'btn btn-sm', :method => :get} %>
-      <td>
     </tr>
   <% end %>
 </table>
-
 
 <p><%= link_to "Add a company", new_company_path, id: "new-company-link", class: "btn btn-info", remote: true %></p>
