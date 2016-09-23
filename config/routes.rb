@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :companies do
     resources :technologies
   end
+  resources :technologies, :only => [:show]
 
   resources :users
   resources :admin, :only => [:index]

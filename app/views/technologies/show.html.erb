@@ -1,0 +1,10 @@
+<h2><%= @technology.name %></h2>
+
+<p>Description: <%= @technology.description %></p>
+
+<p>Companies using this tech:<p>
+<ol>
+  <% @technology.companies.each do |company| %>
+    <li><%= company.name %></li>
+  <% end %>
+</ol>

@@ -15,7 +15,9 @@
       <%= @company.description %>
     </td>
     <td>
-      <%= @company.technologies %>
+      <% @company.technologies.each do |tech| %>
+        <p><%= link_to tech.name, technology_path(tech) %></p>
+      <% end %>
     </td>
     <td>
       <% @company.offices.each do |office| %>

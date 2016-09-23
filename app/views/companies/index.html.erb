@@ -10,26 +10,30 @@
   </thead>
   <tbody>
   <% @companies.each do |company| %>
-    <td>
-      <%= link_to company.name, company_path(company) %>
-    </td>
-    <td>
-      <%= company.description %>
-    </td>
-    <td>
-      <%= company.technologies %>
-    </td>
-    <td>
-      <% company.offices.each do |office|%>
-        <div>
-          <span><%= office.city %></span>,
-          <span><%= office.state %></span>
-        </div>
-      <% end %>
-    </td>
-    <td>
-      <%= button_to "Edit", edit_company_path(company), {class: 'btn btn-sm', :method => :get} %>
-    <td>
+    <tr>
+      <td>
+        <%= link_to company.name, company_path(company) %>
+      </td>
+      <td>
+        <%= company.description %>
+      </td>
+      <td>
+        <% company.technologies.each do |tech| %>
+          <p><%= tech.name %></p>
+        <% end %>
+      </td>
+      <td>
+        <% company.offices.each do |office|%>
+          <div>
+            <span><%= office.city %></span>,
+            <span><%= office.state %></span>
+          </div>
+        <% end %>
+      </td>
+      <td>
+        <%= button_to "Edit", edit_company_path(company), {class: 'btn btn-sm', :method => :get} %>
+      <td>
+    </tr>
   <% end %>
 </table>
 
