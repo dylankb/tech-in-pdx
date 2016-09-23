@@ -10,7 +10,10 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     if @company.save
       flash[:notice] = "List successfully added!"
-      redirect_to companies_path
+      respond_to do |format|
+        format.html { redirect_to companies_path }
+        format.js
+      end
     else
       render :new
     end
