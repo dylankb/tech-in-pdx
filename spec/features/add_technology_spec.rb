@@ -9,11 +9,8 @@ describe "the add a company process" do
     fill_in "Password", :with => user.password
     click_on "Log in"
 
-    visit companies_path
-    click_link "Add a company"
-    fill_in "Name", :with => 'New company'
-    click_on "Create Company"
-    expect(page).to have_content "Companies"
+    company = FactoryGirl.create(:company)
+    click_on "TechInPDX"
 
     click_on "Edit"
     click_on "Add a Technology"

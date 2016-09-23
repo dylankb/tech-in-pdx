@@ -10,7 +10,7 @@ describe "adding an office to a company do" do
 
     company = FactoryGirl.create(:company)
 
-    visit companies_path
+    click_on "TechInPDX"
     click_on "Edit"
     click_on "Add an Office"
     fill_in "City", :with => "Portland"
