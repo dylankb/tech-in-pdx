@@ -7,6 +7,7 @@ class OfficesController < ApplicationController
   end
 
   def create
+    @options = ["HQ", "Branch"]
     @company = Company.find(params[:company_id])
     @office = @company.offices.new(office_params)
     if @office.save

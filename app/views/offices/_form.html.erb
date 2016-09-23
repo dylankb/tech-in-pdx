@@ -1,3 +1,5 @@
+<%= render "layouts/errors", :object => @office %>
+
 <%= form_for [@company, @office] do |f| %>
   <div class= "form-group">
   <%= f.label :office_type %>
