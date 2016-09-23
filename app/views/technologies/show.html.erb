@@ -1,10 +1,42 @@
 <h2><%= @technology.name %></h2>
 
-<p>Description: <%= @technology.description %></p>
+<h3>Description: <%= @technology.description %></h3>
 
-<p>Companies using this tech:<p>
-<ol>
+<h3>Companies using this tech:</h3>
+
+<table class="table">
+  <thead>
+    <th>Company name</th>
+    <th>Description</th>
+    <th>Technologies</th>
+    <th>Locations</th>
+    <th></th>
+  </thead>
+  <tbody>
   <% @technology.companies.each do |company| %>
-    <li><%= company.name %></li>
+    <tr>
+      <td>
+        <%= link_to company.name, company_path(company) %>
+      </td>
+      <td>
+        <%= company.description %>
+      </td>
+      <td>
+        <% company.technologies.each do |tech| %>
+          <p><%= link_to tech.name, technology_path(tech) %></p>
+        <% end %>
+      </td>
+      <td>
+        <% company.offices.each do |office|%>
+          <div>
+            <span><%= office.city %></span>,
+            <span><%= office.state %></span>
+          </div>
+        <% end %>
+      </td>
+      <td>
+        <%= button_to "Edit", edit_company_path(company), {class: 'btn btn-sm', :method => :get} %>
+      <td>
+    </tr>
   <% end %>
-</ol>
+</table>

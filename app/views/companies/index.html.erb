@@ -19,7 +19,7 @@
       </td>
       <td>
         <% company.technologies.each do |tech| %>
-          <p><%= tech.name %></p>
+          <p><%= link_to tech.name, technology_path(tech) %></p>
         <% end %>
       </td>
       <td>

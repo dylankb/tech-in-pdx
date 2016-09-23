@@ -2,10 +2,11 @@
 
 <table class="table">
   <thead>
-    <th>name</th>
-    <th>description</th>
-    <th>technologies</th>
-    <th>offices</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Technologies</th>
+    <th>Locations</th>
+    <th></th>
   </thead>
   <tbody>
     <td>
@@ -27,4 +28,7 @@
       </div>
       <% end %>
     </td>
+    <td>
+      <%= button_to "Edit", edit_company_path(@company), {class: 'btn btn-sm', :method => :get} %>
+    <td>
 <table>
