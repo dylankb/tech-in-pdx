@@ -12,6 +12,7 @@ describe "the add a company process" do
     company = FactoryGirl.create(:company)
     click_on "TechInPDX"
 
+    click_on "New company"
     click_on "Edit"
     click_on "Add a Technology"
     fill_in "Name", :with => 'Ruby'
