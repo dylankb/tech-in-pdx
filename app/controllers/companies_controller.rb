@@ -36,7 +36,7 @@ class CompaniesController < ApplicationController
     if @company.update(company_params)
       flash[:notice] = @company.name + " updated!"
       respond_to do |format|
-        format.html { redirect_to companies_path }
+        format.html { redirect_to company_path(@company) }
         format.js
       end
     else

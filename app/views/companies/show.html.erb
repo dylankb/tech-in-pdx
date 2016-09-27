@@ -6,29 +6,42 @@
     <th>Description</th>
     <th>Technologies</th>
     <th>Locations</th>
-    <th></th>
   </thead>
-  <tbody>
-    <td>
-      <%= @company.name %>
-    </td>
-    <td>
-      <%= @company.description %>
-    </td>
-    <td>
-      <% @company.technologies.each do |tech| %>
-        <p><%= link_to tech.name, technology_path(tech) %></p>
-      <% end %>
-    </td>
-    <td>
-      <% @company.offices.each do |office| %>
-      <div>
-        <span><%= office.city %></span>,
-        <span><%= office.state %></span>
-      </div>
-      <% end %>
-    </td>
-    <td>
-      <%= button_to "Edit", edit_company_path(@company), {class: 'btn btn-sm', :method => :get} %>
-    <td>
+  <tbody id="company-list">
+    <tr>
+      <td>
+        <%= @company.name %>
+      </td>
+      <td>
+        <%= @company.description %>
+      </td>
+      <td>
+        <% @company.technologies.each do |tech| %>
+          <p><%= link_to tech.name, technology_path(tech) %></p>
+        <% end %>
+      </td>
+      <td>
+        <% @company.offices.each do |office| %>
+        <div>
+          <span><%= office.city %></span>,
+          <span><%= office.state %></span>
+        </div>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= button_to "Edit Name & Description", edit_company_path(@company), {class: 'btn btn-info', id: "edit-company-btn", :method => :get, remote: true} %>
+      </td>
+      <td>
+        <%= button_to "Add a Technology", new_company_technology_path(@company), {class: "btn btn-info", id: "add-company-technology", :method => :get, remote: true} %>
+      </td>
+      <td>
+        <%= button_to "Add an Office", new_company_office_path(@company), {class: "btn btn-info", id: "add-company-office", :method => :get, remote: true}  %>
+      </td>
+  </tbody>
 <table>
+
+<div class="new-office-div"></div>
+
+<div class="new-technology-div"></div>
