@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_current_user
     unless current_user
-      flash[:notice] = "You must be signed in to access that."
+      flash[:alert] = "You must be logged in to access that. Log in first to proceed."
       redirect_to log_in_path
     end
   end
