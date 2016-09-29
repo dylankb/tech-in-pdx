@@ -1,11 +1,39 @@
 <h1>Admin Panel</h1>
 
-<% @companies.each do |company| %>
-  <%= company.name %>
-  <%= link_to "Edit", edit_company_path(company) %>
-  <%= link_to "X", company_path(company),
-                      :data => { :confirm => "Are you sure?", :method => :delete } %>
-<% end %>
+<strong>Click on a company to edit</strong>
 
+<h2>Companies</h2>
 
-<p><%= link_to "Back", companies_path %></p>
+<table class="table">
+  <thead>
+    <th>Company name</th>
+    <th>Description</th>
+    <th>Technologies</th>
+    <th>Locations</th>
+  </thead>
+  <tbody id="company-list">
+    <% @companies.each do |company| %>
+    <tr>
+      <td>
+        <%= link_to company.name, admin_path(company) %>
+      </td>
+      <td>
+        <%= company.description %>
+      </td>
+      <td>
+        <% company.technologies.each do |tech| %>
+          <p><%= link_to tech.name, technology_path(tech) %></p>
+        <% end %>
+      </td>
+      <td>
+        <% company.offices.each do |office|%>
+          <div>
+            <span><%= office.city %></span>,
+            <span><%= office.state %></span>
+          </div>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

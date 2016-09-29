@@ -1,11 +1,14 @@
-<h1><%= @company.name %>'s details</h1>
+<h1>Admin Panel</h1>
+
+<h2>Companies</h2>
 
 <table class="table">
   <thead>
-    <th>Name</th>
+    <th>Company name</th>
     <th>Description</th>
     <th>Technologies</th>
     <th>Locations</th>
+    <th></th>
   </thead>
   <tbody id="company-list">
     <%= render @company %>
@@ -19,10 +22,12 @@
       <td>
         <%= button_to "Add an Office", new_company_office_path(@company), {class: "btn btn-info", id: "add-company-office", :method => :get, remote: true}  %>
       </td>
+      <td>
+        <%= link_to "Delete", company_path(@company),
+        :data => { :confirm => "Are you sure?", :method => :delete, } %>
+      </td>
     </tr>
   </tbody>
-<table>
+</table>
 
-<div class="new-office-div"></div>
-
-<div class="new-technology-div"></div>
+<p><%= link_to "Back to admin list", admin_path %></p>
