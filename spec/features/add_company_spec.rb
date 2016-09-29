@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe "the add a company process" do
+describe "the adding a company process" do
 
-  it "adds a new company" do
+  it "adds a new company", js: true do
     user = FactoryGirl.create(:user)
     visit log_in_path
     fill_in "Email", :with => user.email
@@ -16,14 +16,16 @@ describe "the add a company process" do
     expect(page).to have_content "Companies"
   end
 
-  it "gives error when no name is entered" do
+  it "gives error when no name is entered", js: true do
     user = FactoryGirl.create(:user)
     visit log_in_path
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
     click_on "Log in"
 
-    visit new_company_path
+    click_on "TechInPDX"
+    click_on 'Add a company'
+    sleep(1)
     click_on 'Create Company'
     expect(page).to have_content 'errors'
   end

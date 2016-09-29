@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe "the add a company process" do
+describe "the adding a technology to a company process" do
 
-  it "adds a new company" do
+  it "adds a technology", js: true do
     user = FactoryGirl.create(:user)
     visit log_in_path
     fill_in "Email", :with => user.email
@@ -13,9 +13,8 @@ describe "the add a company process" do
     click_on "TechInPDX"
 
     click_on "New company"
-    click_on "Edit"
     click_on "Add a Technology"
-    fill_in "Name", :with => 'Ruby'
+    fill_in "Name", :with => 'Amazing tech'
     click_on "Create Technology"
     expect(page).to have_content "New technology"
   end

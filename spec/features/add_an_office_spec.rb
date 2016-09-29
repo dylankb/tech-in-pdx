@@ -1,5 +1,5 @@
 describe "adding an office to a company do" do
-  it "adds an office" do
+  it "adds an office", js: true do
 
     # Log-in
     user = FactoryGirl.create(:user)
@@ -21,7 +21,7 @@ describe "adding an office to a company do" do
     expect(page).to have_content "New office saved!"
   end
 
-  it "receives error creating blank office" do
+  it "receives error creating blank office", js: true do
     user = FactoryGirl.create(:user)
     visit log_in_path
     fill_in "Email", :with => user.email

@@ -1,9 +1,10 @@
-describe "the process of updating a company" do
-  it "updates a company" do
+describe "the process of updating a company in the admin panel" do
+  it "updates a company", js: true do
     company = FactoryGirl.create(:company)
 
     visit admin_index_path
-    click_on 'Edit'
+    click_on 'New company'
+    click_on 'Edit Name & Description'
     fill_in "Name", :with => 'A new company name'
     click_on "Update Company"
     expect(page).to have_content "A new company name"
@@ -13,9 +14,11 @@ describe "the process of updating a company" do
     company = FactoryGirl.create(:company)
 
     visit admin_index_path
-    click_link 'Edit'
+    click_on 'New company'
+    click_on 'Edit Name & Description'
     fill_in "Name", :with => ""
     click_on "Update Company"
+    # save_and_open_screenshot
     expect(page).to have_content "errors"
   end
 end

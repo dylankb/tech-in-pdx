@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "log in a user process" do
-  it "logs a user in" do
+  it "logs a user in", js: true do
     user = FactoryGirl.create(:user)
 
     visit log_in_path
