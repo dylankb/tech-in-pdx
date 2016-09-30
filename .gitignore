@@ -16,5 +16,8 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# Ignore SimpleCov outpu
+# Ignore SimpleCov output
 /coverage
+
+# Ignore environment variables
+.env
