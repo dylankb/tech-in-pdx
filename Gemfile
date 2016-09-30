@@ -44,6 +44,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem 'phantomjs'
 end
 
 group :development do

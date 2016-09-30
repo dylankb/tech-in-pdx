@@ -6,10 +6,16 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
-
 require 'capybara/poltergeist'
+require 'phantomjs'
+
+Phantomjs.path # Force install on require
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, :phantomjs => Phantomjs.path)
+end
+
 Capybara.javascript_driver = :poltergeist
-Capybara.default_max_wait_time = 5
+Capybara.default_max_wait_time = 10
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

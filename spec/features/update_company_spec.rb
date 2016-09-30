@@ -18,7 +18,6 @@ describe "the process of updating a company in the admin panel" do
     click_on 'Edit Name & Description'
     fill_in "Name", :with => ""
     click_on "Update Company"
-    # save_and_open_screenshot
     expect(page).to have_content "errors"
   end
 end

@@ -24,8 +24,7 @@ describe "the adding a company process" do
     click_on "Log in"
 
     click_on "TechInPDX"
-    click_on 'Add a company'
-    sleep(1)
+    click_link 'Add a company'
     click_on 'Create Company'
     expect(page).to have_content 'errors'
   end
