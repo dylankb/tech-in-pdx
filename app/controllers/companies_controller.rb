@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      flash[:notice] = "List successfully added!"
+      flash[:notice] = "Company successfully added!"
       respond_to do |format|
         format.html { redirect_to companies_path }
         format.js
