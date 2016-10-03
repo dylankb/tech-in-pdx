@@ -34,13 +34,13 @@
     </tr>
     <tr>
       <td colspan="2">
-        <%= button_to "Edit Name & Description", edit_company_path(@company), {class: 'btn btn-info', id: "edit-company-btn", :method => :get, remote: true} %>
+        <%= link_to "Edit Name & Description", edit_company_path(@company), class: 'btn btn-info', id: "edit-company-btn", remote: true %>
       </td>
       <td>
-        <%= button_to "Add a Technology", new_company_technology_path(@company), {class: "btn btn-info", id: "add-company-technology", :method => :get, remote: true} %>
+        <%= link_to "Add a Technology", new_company_technology_path(@company), class: "btn btn-info", id: "add-company-technology", remote: true %>
       </td>
       <td>
-        <%= button_to "Add an Office", new_company_office_path(@company), {class: "btn btn-info", id: "add-company-office", :method => :get, remote: true}  %>
+        <%= link_to "Add an Office", new_company_office_path(@company), class: "btn btn-info", id: "add-company-office", remote: true  %>
       </td>
       <td>
         <%= link_to "Delete", company_path(@company),
