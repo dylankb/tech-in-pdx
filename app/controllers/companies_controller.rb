@@ -8,14 +8,14 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    if @company.save
-      flash[:notice] = "Company successfully added!"
-      respond_to do |format|
+    respond_to do |format|
+      if @company.save
+        flash[:notice] = "Company successfully added!"
         format.html { redirect_to companies_path }
         format.js
+      else
+        format.js { render :errors}
       end
-    else
-      render :new
     end
   end
 
@@ -40,7 +40,7 @@ class CompaniesController < ApplicationController
         format.js
       end
     else
-      render :edit
+      respond_to :js
     end
   end
 
