@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory(:company) do
     name('New company')
+    twitter_handle('epicodus')
   end
 
   factory(:user) do
