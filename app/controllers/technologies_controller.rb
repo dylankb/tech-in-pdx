@@ -1,12 +1,11 @@
 class TechnologiesController < ApplicationController
+  before_action :set_company, only: [:new, :create]
 
   def new
-    @company = Company.find(params[:company_id])
     @technology = Technology.new
   end
 
   def create
-    @company = Company.find(params[:company_id])
     @technology = Technology.new(technology_params)
     if @technology.save
       flash[:notice] = "New technology saved!"
@@ -25,7 +24,12 @@ class TechnologiesController < ApplicationController
     @technology = Technology.find(params[:id])
   end
 
+private
   def technology_params
     params.require(:technology).permit(:name, :description)
+  end
+
+  def set_company
+    @company = Company.find(params[:company_id])
   end
 end
