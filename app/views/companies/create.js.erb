@@ -1,3 +1,5 @@
 $('#new_company').remove();
 $('#new-company-link').show();
 $('#company-list').append('<%= j render(@company) %>');
+$('.flash-alert').html('<%= j flash[:alert] %>');
+$('.flash-notice').html('<%= j flash[:notice] %>');

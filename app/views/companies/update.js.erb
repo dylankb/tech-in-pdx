@@ -1,3 +1,5 @@
 $('.edit_company').remove();
 $('#edit-company-btn').show();
-$('#company-list').append('<%= j render(@company) %>');
+$('#company-list tr#<%= @company.id %>').replaceWith('<%= j render(@company) %>');
+$('.flash-alert').html('<%= j flash[:alert] %>');
+$('.flash-notice').html('<%= j flash[:notice] %>');
