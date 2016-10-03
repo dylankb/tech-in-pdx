@@ -15,7 +15,7 @@ class Company < ActiveRecord::Base
         config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
       end
 
-      company_twitter = client.user_search(twitter_handle).first
+      company_twitter = client.user(twitter_handle)
       self.twitter_follower_count = company_twitter.followers_count
     rescue => error
       errors.add(:base, error)
