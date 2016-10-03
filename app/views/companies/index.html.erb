@@ -9,9 +9,7 @@
     <th>Twitter Followers</th>
   </thead>
   <tbody id="company-list">
-  <% @companies.each do |company| %>
-    <%= render company %>
-  <% end %>
+  <%= render @companies %>
 </table>
 
 <p><%= link_to "Add a company", new_company_path, id: "new-company-link", class: "btn btn-info", remote: true %></p>

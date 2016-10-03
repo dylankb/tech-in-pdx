@@ -11,7 +11,27 @@
     <th></th>
   </thead>
   <tbody id="company-list">
-    <%= render @company %>
+    <tr>
+      <td>
+        <%= link_to @company.name, admin_path(@company) %>
+      </td>
+      <td>
+        <%= @company.description %>
+      </td>
+      <td>
+        <% @company.technologies.each do |tech| %>
+          <p><%= link_to tech.name, technology_path(tech) %></p>
+        <% end %>
+      </td>
+      <td>
+        <% @company.offices.each do |office|%>
+          <div>
+            <span><%= office.city %></span>,
+            <span><%= office.state %></span>
+          </div>
+        <% end %>
+      </td>
+    </tr>
     <tr>
       <td colspan="2">
         <%= button_to "Edit Name & Description", edit_company_path(@company), {class: 'btn btn-info', id: "edit-company-btn", :method => :get, remote: true} %>

@@ -6,6 +6,7 @@
     <th>Description</th>
     <th>Technologies</th>
     <th>Locations</th>
+    <th>Twitter Followers</th>
   </thead>
   <tbody id="company-list">
     <%= render @company %>
@@ -19,6 +20,7 @@
       <td>
         <%= link_to "Add an Office", new_company_office_path(@company), class: "btn btn-info", id: "add-company-office", remote: true  %>
       </td>
+      <td></td>
     </tr>
   </tbody>
 <table>
