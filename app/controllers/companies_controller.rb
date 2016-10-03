@@ -33,14 +33,14 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    if @company.update(company_params)
-      flash[:notice] = @company.name + " updated!"
-      respond_to do |format|
+    respond_to do |format|
+      if @company.update(company_params)
+        flash[:notice] = @company.name + " updated!"
         format.html { redirect_to company_path(@company) }
         format.js
+      else
+        format.js { render :errors }
       end
-    else
-      respond_to :js
     end
   end
 
