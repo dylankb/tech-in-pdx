@@ -4,7 +4,7 @@ class Company < ActiveRecord::Base
 
   validates :name, :presence => true
 
-  before_create :twitter_followers, unless: :twitter_handle?
+  before_create :twitter_followers, if: :twitter_handle?
 
   def twitter_followers
     begin
@@ -16,6 +16,7 @@ class Company < ActiveRecord::Base
       end
 
       company_twitter = client.user(twitter_handle)
+      self.description = company_twitter.description
       self.twitter_follower_count = company_twitter.followers_count
     rescue => error
       errors.add(:base, error)
@@ -24,6 +25,6 @@ class Company < ActiveRecord::Base
   end
 
   def twitter_handle?
-    self.twitter_handle.empty?
+    !self.twitter_handle.empty?
   end
 end
