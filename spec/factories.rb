@@ -13,4 +13,8 @@ FactoryGirl.define do
     city('Portland')
     state('OR')
   end
+
+  factory(:technology) do
+    name('ruby')
+  end
 end

@@ -10,12 +10,12 @@ describe "the adding a technology to a company process" do
     click_on "Log in"
 
     company = FactoryGirl.create(:company)
+    technology = FactoryGirl.create(:technology)
     click_on "TechInPDX"
-
     click_on "New company"
-    click_on "Add a Technology"
-    fill_in "Name", :with => 'Amazing tech'
-    click_on "Create Technology"
-    expect(page).to have_content "New technology"
+    click_on "Edit Details"
+    find(:css, "#company_technology_ids_1").set(true)
+    click_on "Update Company"
+    expect(page).to have_content "updated"
   end
 end
