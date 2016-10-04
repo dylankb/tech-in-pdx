@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+companies = [
+  ["Airbnb", "Airbnb"],
+  ["Puppet Labs", "puppetize"],
+  ["New Relic", "newrelic"],
+  ["Womply", "womply"]
+]
+
+technologies = Technology.create([{ name: 'ruby'},{name: 'ruby-on-rails'}, {name: 'javascript'}])
+
+portland = Office.create(city: "Portland", state: "OR")
+
+companies.each do |name, handle|
+  company = Company.create(name: name, twitter_handle: handle)
+  company.offices.push(portland)
+  technologies.each do |technology|
+    company.technologies.push(technology)
+  end
+end
