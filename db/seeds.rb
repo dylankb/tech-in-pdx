@@ -15,11 +15,9 @@ companies = [
 
 technologies = Technology.create([{ name: 'ruby'},{name: 'ruby-on-rails'}, {name: 'javascript'}])
 
-portland = Office.create(city: "Portland", state: "OR")
-
 companies.each do |name, handle|
   company = Company.create(name: name, twitter_handle: handle)
-  company.offices.push(portland)
+  company.offices.create(city: "Portland", state: "OR")
   technologies.each do |technology|
     company.technologies.push(technology)
   end
