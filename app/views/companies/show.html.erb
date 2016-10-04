@@ -33,16 +33,18 @@
         <%= @company.twitter_follower_count %>
       </td>
     <tr>
-      <td colspan="2">
-        <%= link_to "Edit Name & Description", edit_company_path(@company), class: 'btn btn-info', id: "edit-company-btn", remote: true %>
-      </td>
-      <td>
-        <%= link_to "Add a Technology", new_company_technology_path(@company), class: "btn btn-info", id: "add-company-technology", remote: true %>
+      <td colspan="3">
+        <%= link_to "Edit Details", edit_company_path(@company), class: 'btn btn-info', id: "edit-company-btn", remote: true %>
       </td>
       <td>
         <%= link_to "Add an Office", new_company_office_path(@company), class: "btn btn-info", id: "add-company-office", remote: true  %>
       </td>
-      <td></td>
+      <td>
+        <% if current_user_is_admin? %>
+          <%= link_to "Delete", company_path(@company), class: "btn btn-info",
+          :data => { :confirm => "Are you sure?", :method => :delete, } %>
+        <% end %>
+      </td>
     </tr>
   </tbody>
 <table>

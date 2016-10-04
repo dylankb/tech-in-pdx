@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def current_user_is_admin?
+    current_user ? current_user.admin : false
+  end
+  helper_method :current_user_is_admin?
+
   def authenticate_current_user
     unless current_user
       flash[:alert] = "You must be logged in to access that. Log in first to proceed."
