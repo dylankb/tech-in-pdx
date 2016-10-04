@@ -18,3 +18,33 @@
 .btn {
   margin-bottom: 15px;
 }
+
+.navbar {
+  min-height: 75px;
+  border: none;
+  border-bottom: 5px solid transparent;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.navbar-default {
+  background-color: white;
+  border-bottom-color: #09a38c;
+}
+
+.logo {
+  width: 100px;
+}
+
+.btn-custom {
+  border-color: #af7abf;
+  border-width: 5px;
+  border-radius: 20%;
+  margin-left: 20px;
+}
+
+.navbar .nav-link {
+  padding-right: 45px;
+  padding-left: 45px;
+  padding-top: 20px;
+}
