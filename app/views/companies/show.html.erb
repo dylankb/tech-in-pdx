@@ -1,5 +1,10 @@
 <h1><%= @company.name %>'s details</h1>
 
+<div>
+  <%= image_tag @company.profile_image_uri, id: "profile-image" %>
+  <%= image_tag @company.profile_banner_uri, id: "profile-banner" %>
+</div>
+
 <table class="table">
   <thead>
     <th>Name</th>

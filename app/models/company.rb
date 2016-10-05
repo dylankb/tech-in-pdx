@@ -4,9 +4,9 @@ class Company < ActiveRecord::Base
 
   validates :name, :presence => true
 
-  before_create :twitter_followers, if: :twitter_handle?
+  before_create :twitter_api_call, if: :twitter_handle?
 
-  def twitter_followers
+  def twitter_api_call
     begin
       client = Twitter::REST::Client.new do |config|
         config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
@@ -17,6 +17,9 @@ class Company < ActiveRecord::Base
 
       company_twitter = client.user(twitter_handle)
       self.description = company_twitter.description
+      self.website = company_twitter.website
+      self.profile_banner_uri = company_twitter.profile_banner_uri
+      self.profile_image_uri = company_twitter.profile_image_uri
       self.twitter_follower_count = company_twitter.followers_count
     rescue => error
       errors.add(:base, error)
