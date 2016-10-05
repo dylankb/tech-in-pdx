@@ -1,15 +1,17 @@
-<h1>Companies</h1>
+<div class="container">
+  <h1>Companies</h1>
 
-<table class="table">
-  <thead>
-    <th>Company name</th>
-    <th>Description</th>
-    <th>Technologies</th>
-    <th>Locations</th>
-    <th>Twitter Followers</th>
-  </thead>
-  <tbody id="company-list">
-  <%= render @companies %>
-</table>
+  <table class="table">
+    <thead>
+      <th>Company name</th>
+      <th>Description</th>
+      <th>Technologies</th>
+      <th>Locations</th>
+      <th>Twitter Followers</th>
+    </thead>
+    <tbody id="company-list">
+      <%= render @companies %>
+    </table>
 
-<p><%= link_to "Add a company", new_company_path, id: "new-company-link", class: "btn btn-info", remote: true %></p>
+    <p><%= link_to "Add a company", new_company_path, id: "new-company-link", class: "btn btn-info", remote: true %></p>
+</div>
