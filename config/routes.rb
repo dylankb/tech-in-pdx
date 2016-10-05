@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :technologies, :only => [:show]
 
   resources :users
-  resources :admin, :only => [:index, :show]
+  get "/pages/:page" => "pages#show"
 
   # resources :sessions, :as => "log_in", :only => [:new, :create]
   # resources :sessions, :only => [:new, :create]
