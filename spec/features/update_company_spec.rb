@@ -1,4 +1,4 @@
-describe "the process of updating a company" do
+describe "the process of updating a company", js: true do
   it "updates a company", js: true do
     user = FactoryGirl.create(:user)
     visit log_in_path
@@ -15,7 +15,7 @@ describe "the process of updating a company" do
     expect(page).to have_content "A new company name"
   end
 
-  it "displays error when a field is missing" do
+  it "displays error when a field is missing", js: true do
     user = FactoryGirl.create(:user)
     visit log_in_path
     fill_in "Email", :with => user.email
