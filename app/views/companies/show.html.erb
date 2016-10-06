@@ -15,35 +15,10 @@
       <th>Twitter Followers</th>
     </thead>
     <tbody id="company-list">
-      <tr id="<%= @company.id %>">
-        <td>
-          <%= @company.name %>
-        </td>
-        <td>
-          <%= @company.description %>
-        </td>
-        <td>
-          <% @company.technologies.each do |tech| %>
-            <p><%= link_to tech.name, technology_path(tech) %></p>
-          <% end %>
-        </td>
-        <td>
-          <% @company.locations.each do |location|%>
-            <div>
-              <span><%= location.city %></span>,
-              <span><%= location.state %></span>
-            </div>
-          <% end %>
-        </td>
-        <td id="<%= @company.twitter_follower_count ? 'twitter-followers' : '' %>">
-          <%= @company.twitter_follower_count %>
-        </td>
+      <%= render @company %>
       <tr>
         <td colspan="3">
           <%= link_to "Edit Details", edit_company_path(@company), class: 'btn btn-info', id: "edit-company-btn", remote: true %>
-        </td>
-        <td>
-          <%= link_to "Add an Office", new_company_office_path(@company), class: "btn btn-info", id: "add-company-office", remote: true  %>
         </td>
         <td>
           <% if current_user_is_admin? %>
@@ -54,7 +29,4 @@
       </tr>
     </tbody>
   </table>
-  <div class="new-office-div"></div>
-
-  <div class="new-technology-div"></div>
 </div>
