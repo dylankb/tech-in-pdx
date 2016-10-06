@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005002926) do
+ActiveRecord::Schema.define(version: 20161006003147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,23 @@ ActiveRecord::Schema.define(version: 20161005002926) do
     t.string   "profile_image_uri"
   end
 
+  create_table "companies_locations", id: false, force: :cascade do |t|
+    t.integer "company_id",  null: false
+    t.integer "location_id", null: false
+    t.index ["company_id", "location_id"], name: "index_companies_locations_on_company_id_and_location_id", using: :btree
+    t.index ["location_id", "company_id"], name: "index_companies_locations_on_location_id_and_company_id", using: :btree
+  end
+
   create_table "companies_technologies", id: false, force: :cascade do |t|
     t.integer "company_id",    null: false
     t.integer "technology_id", null: false
     t.index ["company_id", "technology_id"], name: "index_companies_technologies_on_company_id_and_technology_id", using: :btree
     t.index ["technology_id", "company_id"], name: "index_companies_technologies_on_technology_id_and_company_id", using: :btree
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "city"
+    t.string "state"
   end
 
   create_table "offices", force: :cascade do |t|

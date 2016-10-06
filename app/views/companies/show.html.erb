@@ -28,10 +28,10 @@
           <% end %>
         </td>
         <td>
-          <% @company.offices.each do |office|%>
+          <% @company.locations.each do |location|%>
             <div>
-              <span><%= office.city %></span>,
-              <span><%= office.state %></span>
+              <span><%= location.city %></span>,
+              <span><%= location.state %></span>
             </div>
           <% end %>
         </td>
