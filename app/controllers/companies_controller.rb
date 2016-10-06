@@ -17,7 +17,12 @@ class CompaniesController < ApplicationController
         @company.technologies.push(technology)
       end
     end
-
+    if params[:company][:location_ids]
+      params[:company][:location_ids].each do |id|
+        location = Location.find(id)
+        @company.locations.push(location)
+      end
+    end
     respond_to do |format|
       if @company.save
         flash[:notice] = "Company successfully added!"
@@ -49,6 +54,12 @@ class CompaniesController < ApplicationController
         @company.technologies.push(technology)
       end
     end
+    if params[:company][:location_ids]
+      params[:company][:location_ids].each do |id|
+        location = Location.find(id)
+        @company.locations.push(location)
+      end
+    end
     respond_to do |format|
       if @company.update(company_params)
         flash[:notice] = @company.name + " updated!"
@@ -69,6 +80,6 @@ class CompaniesController < ApplicationController
 
 private
   def company_params
-    params.require(:company).permit(:name, :description, :twitter_handle, :technology_ids)
+    params.require(:company).permit(:name, :description, :twitter_handle, :technology_ids, :location_ids )
   end
 end

@@ -6,7 +6,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="form-group">
-    <%= f.label :description %>
+    <%= f.label "description" + ":" %>
     <%= f.text_field :description %>
   </div>
   <div class="form-group">
@@ -18,6 +18,13 @@
     <%= f.collection_check_boxes(:technology_ids, Technology.all, :id, :name, include_hidden: false) do |technology| %>
       <%= technology.label %>
       <%= technology.check_box %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :locations %>
+    <%= f.collection_check_boxes(:location_ids, Location.all, :id, :city, include_hidden: false) do |location| %>
+      <%= location.label {location.object.city + ", " + location.object.state} %>
+      <%= location.check_box  %>
     <% end %>
   </div>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
