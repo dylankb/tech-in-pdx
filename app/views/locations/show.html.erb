@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Companies in <%= "#{@location.city}, #{@location.state} "%></h2>
+
+  <table class="table">
+    <thead>
+      <th>Company name</th>
+      <th>Description</th>
+      <th>Technologies</th>
+      <th>Locations</th>
+      <th>Twitter Followers</th>
+    </thead>
+    <tbody id="company-list">
+    <% @location.companies.each do |company| %>
+      <%= render company %>
+    <% end %>
+    </tbody>
+  </table>
+</div>

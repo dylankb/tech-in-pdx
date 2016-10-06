@@ -5,6 +5,7 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
     @technologies = Technology.all
+    @locations = Location.all
   end
 
   def create

@@ -12,10 +12,9 @@
   </td>
   <td>
     <% company.locations.each do |location|%>
-      <div>
-        <span><%= link_to location.city, company_locations_path %></span>,
-        <span><%= location.state %></span>
-      </div>
+      <p>
+        <%= link_to "#{location.city}, #{location.state}", location_path(location) %>
+      </p>
     <% end %>
   </td>
     <td id="<%= company.twitter_follower_count ? 'twitter-followers' : '' %>">
