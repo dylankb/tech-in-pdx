@@ -11,11 +11,10 @@
     <% end %>
   </td>
   <td>
-    <% company.offices.each do |office|%>
-      <div>
-        <span><%= office.city %></span>,
-        <span><%= office.state %></span>
-      </div>
+    <% company.locations.each do |location|%>
+      <p>
+        <%= link_to "#{location.city}, #{location.state}", location_path(location) %>
+      </p>
     <% end %>
   </td>
     <td id="<%= company.twitter_follower_count ? 'twitter-followers' : '' %>">

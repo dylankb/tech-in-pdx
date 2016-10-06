@@ -9,7 +9,7 @@ FactoryGirl.define do
     password('test')
   end
 
-  factory(:office) do
+  factory(:location) do
     city('Portland')
     state('OR')
   end

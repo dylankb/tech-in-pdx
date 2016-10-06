@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   root :to => "companies#index"
 
-  resources :companies do
-    resources :offices
-  end
+  resources :companies
+  resources :locations
 
-  resources :companies do
-    resources :technologies
-  end
+  resources :companies
+
   resources :technologies, :only => [:show]
 
   resources :users

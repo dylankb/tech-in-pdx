@@ -13,11 +13,13 @@ companies = [
   ["Womply", "womply"]
 ]
 
+portland = Location.create(city: "Portland", state: "OR")
+
 technologies = Technology.create([{ name: 'ruby'},{name: 'ruby-on-rails'}, {name: 'javascript'}])
 
 companies.each do |name, handle|
   company = Company.create(name: name, twitter_handle: handle)
-  company.offices.create(city: "Portland", state: "OR")
+  company.locations.push(portland)
   technologies.each do |technology|
     company.technologies.push(technology)
   end

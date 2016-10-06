@@ -1,7 +1,5 @@
 <div class="container">
-  <h2><%= @technology.name %></h2>
-
-  <h3>Companies using this tech:</h3>
+  <h2>Companies in <%= "#{@location.city}, #{@location.state} "%></h2>
 
   <table class="table">
     <thead>
@@ -12,7 +10,7 @@
       <th>Twitter Followers</th>
     </thead>
     <tbody id="company-list">
-    <% @technology.companies.each do |company| %>
+    <% @location.companies.each do |company| %>
       <%= render company %>
     <% end %>
     </tbody>
