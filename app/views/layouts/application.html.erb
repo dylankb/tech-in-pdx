@@ -10,10 +10,10 @@
 
   <body>
     <%= render "layouts/navbar" %>
-      <div class="flash-alert">
+      <div class="alert-danger flash-alert">
         <%= flash[:alert] %>
       </div>
-      <div class="flash-notice">
+      <div class="alert-success flash-notice">
         <%= flash[:notice] %>
       </div>
       <%= yield %>

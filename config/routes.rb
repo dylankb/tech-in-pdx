@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :companies
   resources :locations
 
-  resources :companies
-
   resources :technologies, :only => [:show]
 
   resources :users
