@@ -20,7 +20,7 @@ class Company < ActiveRecord::Base
       self.description = company_twitter.description
       self.website = company_twitter.website
       self.profile_banner_uri = company_twitter.profile_banner_uri
-      self.profile_image_uri = company_twitter.profile_image_uri
+      self.profile_image_uri = regular_image_size(company_twitter.profile_image_uri.to_s)
       self.twitter_follower_count = company_twitter.followers_count
     rescue => error
       errors.add(:base, error)
@@ -30,5 +30,9 @@ class Company < ActiveRecord::Base
 
   def twitter_handle?
     !self.twitter_handle.empty?
+  end
+
+  def regular_image_size(uri)
+    uri.gsub(/_\w+(\.\w+)\z/, '\1')
   end
 end

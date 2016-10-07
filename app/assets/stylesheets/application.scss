@@ -65,7 +65,7 @@ a {
 }
 
 #profile-image {
-  width: 100px;
+  width: 150px;
 }
 
 .background-img {
@@ -75,7 +75,7 @@ a {
       rgba(41,79,117,0.5)
     ),
     url("splash_background.jpg") 0 0 no-repeat;
-  background-size: 100%;
+  background-size: cover;
   width: 100%;
   height: auto;
   color: #e1e3e5;
@@ -120,9 +120,21 @@ a {
   margin-right: 80px;
 }
 
+.follower-count {
+  // padding-left: 10px;
+}
+
+.table {
+  margin-top: 20px;
+}
+
 #splash {
   margin-top: -20px;
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
+}
+
+.center {
+  text-align: center;
 }
