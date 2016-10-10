@@ -130,3 +130,30 @@ a {
 .center {
   text-align: center;
 }
+
+#notice-wrapper {
+    position: absolute;
+    top: 100;
+    width: 100%;
+    z-index: 9999;
+    .alert, .notice {
+        padding: 2.5rem 0;
+        text-align: center;
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        letter-spacing: 1px;
+        border-radius: 0px;
+    }
+    .alert {
+        background: #f34542;
+    }
+    .notice {
+        background: #09a38c;
+    }
+}
+
+.account-forms {
+  margin-top: 80px;
+}
