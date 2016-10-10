@@ -1,5 +1,4 @@
 $('.edit_company').remove();
 $('#edit-company-btn').show();
-$('#company-list tr#<%= @company.id %>').replaceWith('<%= j render(@company) %>');
-$('.flash-alert').html('<%= j flash[:alert] %>');
-$('.flash-notice').html('<%= j flash[:notice] %>');
+$('#notices').html('<%= j render partial: "layouts/flash_ajax", locals: { flash: flash} %>');
+$('#company-details').replaceWith('<%= j render partial: "company_show", locals: { company: @company} %>');

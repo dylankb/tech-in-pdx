@@ -1,0 +1,57 @@
+<div id="company-details">
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="row">
+        <div class="col-xs-6">
+          <h2><%= company.name %></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= image_tag company.profile_image_uri, id: "profile-image" %>
+        </div>
+        <div class="col-xs-6 center">
+          <p><strong>Twitter Followers</strong></p>
+          <p class="follower-count"><%= company.twitter_follower_count %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <%= image_tag company.profile_banner_uri, id: "profile-banner" %>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <th>Technologies</th>
+      <th>Locations</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <% company.technologies.each do |tech| %>
+          <p><%= link_to tech.name, technology_path(tech) %></p>
+          <% end %>
+        </td>
+        <td>
+          <p>
+            <% company.locations.each do |location| %>
+              <%= link_to "#{location.city}, #{location.state}", location_path(location) %>
+            <% end %>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= link_to "Edit Details", edit_company_path(company), class: 'btn btn-info', id: "edit-company-btn", remote: true %>
+        </td>
+        <td>
+          <% if current_user_is_admin? %>
+            <%= link_to "Delete", company_path(company), class: "btn btn-info",
+            :data => { :confirm => "Are you sure?", :method => :delete, } %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
