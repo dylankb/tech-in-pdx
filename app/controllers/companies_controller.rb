@@ -25,7 +25,7 @@ class CompaniesController < ApplicationController
     end
     respond_to do |format|
       if @company.save
-        flash[:notice] = "Company successfully added!"
+        flash.now[:notice] = "#{@company.name} successfully added!"
         format.html { redirect_to companies_path }
         format.js
       else
@@ -66,7 +66,7 @@ class CompaniesController < ApplicationController
     end
     respond_to do |format|
       if @company.update(company_params)
-        flash[:notice] = @company.name + " updated!"
+        flash.now[:notice] = @company.name + " updated!"
         format.html { redirect_to company_path(@company) }
         format.js
       else
