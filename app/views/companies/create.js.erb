@@ -1,4 +1,4 @@
 $('#new_company').remove();
 $('#new-company-link').show();
 $('#company-list').append('<%= j render(@company) %>');
-$('.flash-notice').addClass('alert').html('<%= j flash.now[:notice] %>')
+$('#notices').html('<%= j render partial: "layouts/flash_ajax", locals: { flash: flash} %>')
