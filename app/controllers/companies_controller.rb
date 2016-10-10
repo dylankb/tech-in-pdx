@@ -51,13 +51,17 @@ class CompaniesController < ApplicationController
     if params[:company][:technology_ids]
       params[:company][:technology_ids].each do |id|
         technology = Technology.find(id)
-        @company.technologies.push(technology)
+        unless @company.technologies.include?(technology)
+          @company.technologies.push(technology)
+        end
       end
     end
     if params[:company][:location_ids]
       params[:company][:location_ids].each do |id|
         location = Location.find(id)
-        @company.locations.push(location)
+        unless @company.locations.include?(location)
+          @company.locations.push(location)
+        end
       end
     end
     respond_to do |format|
