@@ -15,6 +15,13 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user_is_admin?
 
+  def authenticate_admin
+    unless current_user_is_admin?
+      flash[:alert] = "You are not an admin. Action not permitted"
+      redirect_to log_in_path
+    end
+  end
+
   def authenticate_current_user
     unless current_user
       flash[:alert] = "You must be logged in to access that. Log in first to proceed."

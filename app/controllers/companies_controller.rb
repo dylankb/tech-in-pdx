@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
 
-  before_action :authenticate_current_user, :only => :new
+  before_action :authenticate_current_user, :only => [:new, :create, :edit, :update]
+  before_action :authenticate_admin, :only => :delete
 
   def new
     @company = Company.new
