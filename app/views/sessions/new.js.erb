@@ -1,5 +1,5 @@
 <% if flash[:notice] %>
-$('.flash-notice').addClass("alert").html("<%= j flash[:notice] %>");
+$('#notices').html('<%= j render "layouts/flash_ajax" %>');
 <% elsif flash[:alert] %>
-$('.flash-alert').addClass("alert").html("<%= j flash[:alert] %>");
+$('#notices').html('<%= j render "layouts/flash_ajax" %>');
 <% end %>
