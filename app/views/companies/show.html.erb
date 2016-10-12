@@ -12,7 +12,9 @@
         </div>
         <div class="row">
           <div class="col-xs-6">
+            <% if @company.profile_banner_uri %>
             <%= image_tag @company.profile_image_uri, id: "profile-image" %>
+            <% end %>
           </div>
           <div class="col-xs-6 center">
             <p><strong>Twitter Followers</strong></p>
@@ -20,9 +22,11 @@
           </div>
         </div>
       </div>
+      <% if @company.profile_banner_uri %>
       <div class="col-xs-8">
         <%= image_tag @company.profile_banner_uri, id: "profile-banner" %>
       </div>
+      <% end %>
     </div>
 
     <table class="table">
