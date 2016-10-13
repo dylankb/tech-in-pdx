@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe "the adds a user process" do
   it "adds a user", js: true do
-    visit new_user_path
+    visit root_path
+    click_link "Sign Up"
     fill_in "Email", :with => "me@home.com"
     fill_in "Password", :with => "test"
     fill_in "Password confirmation", :with => "test"

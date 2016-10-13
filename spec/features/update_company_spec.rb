@@ -7,8 +7,8 @@ describe "the process of updating a company", js: true do
     click_on "Log in"
 
     company = FactoryGirl.create(:company)
-    click_on "TechInPDX"
-    click_on 'New company'
+    click_on "Explore companies"
+    click_on company.name
     click_on 'Edit Details'
     fill_in "Name", :with => 'A new company name'
     click_on "Update Company"
@@ -23,8 +23,8 @@ describe "the process of updating a company", js: true do
     click_on "Log in"
 
     company = FactoryGirl.create(:company)
-    click_on "TechInPDX"
-    click_on 'New company'
+    click_on "Explore companies"
+    click_on company.name
     click_on 'Edit Details'
     fill_in "Name", :with => ""
     click_on "Update Company"
