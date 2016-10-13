@@ -3,10 +3,9 @@ Rails.application.routes.draw do
 
   resources :companies
   resources :locations
-
   resources :technologies, :only => [:show]
-
   resources :users
+  resources :profiles
   get "/pages/:page" => "pages#show"
 
   # resources :sessions, :as => "log_in", :only => [:new, :create]

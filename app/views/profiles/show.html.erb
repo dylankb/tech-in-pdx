@@ -1,0 +1,9 @@
+<h2>Profile: <%= @profile.github_username %></h2>
+
+<h4>Most coded languages on Github</h4>
+<h5>Click on one to see companies using these languages</h5>
+<ol>
+  <% @profile.technologies.each do |tech| %>
+  <li><%= link_to tech.name, technology_path(tech) %></li>
+  <% end %>
+</ol>

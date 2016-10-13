@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161010211221) do
+ActiveRecord::Schema.define(version: 20161012041531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 20161010211221) do
   create_table "locations", force: :cascade do |t|
     t.string "city"
     t.string "state"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string  "github_username"
+    t.integer "user_id"
+  end
+
+  create_table "profiles_technologies", id: false, force: :cascade do |t|
+    t.integer "profile_id",    null: false
+    t.integer "technology_id", null: false
+    t.index ["profile_id", "technology_id"], name: "index_profiles_technologies_on_profile_id_and_technology_id", using: :btree
+    t.index ["technology_id", "profile_id"], name: "index_profiles_technologies_on_technology_id_and_profile_id", using: :btree
   end
 
   create_table "technologies", force: :cascade do |t|

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_one :profile
+
   attr_accessor :password
   validates_confirmation_of :password
 

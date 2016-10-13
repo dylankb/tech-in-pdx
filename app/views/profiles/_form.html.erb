@@ -1,0 +1,9 @@
+<%= render "layouts/errors", :object => @profile %>
+
+<%= form_for @profile do |f| %>
+  <div class="form-group">
+    <%= f.label :github_username %>
+    <%= f.text_field :github_username, class: "form-control" %>
+  </div>
+  <%= f.submit "Save Profile" %>
+<% end %>

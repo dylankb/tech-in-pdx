@@ -1,0 +1,5 @@
+index
+
+<% @profiles.each do |profile| %>
+  <p><%= link_to profile.github_username, profile_path(profile) %></p>
+<% end %>
