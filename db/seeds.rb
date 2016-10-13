@@ -15,7 +15,9 @@ companies = [
 
 portland = Location.create(city: "Portland", state: "OR")
 
-technologies = Technology.create([{ name: 'ruby'},{name: 'ruby-on-rails'}, {name: 'javascript'}])
+technologies = Technology.create(
+  [{ name: 'ruby'}, {name: 'javascript'}, {name: 'css'}]
+)
 
 companies.each do |name, handle|
   company = Company.create(name: name, twitter_handle: handle)
