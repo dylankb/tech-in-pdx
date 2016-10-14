@@ -17,4 +17,8 @@ FactoryGirl.define do
   factory(:technology) do
     name('ruby')
   end
+
+  factory(:profile) do
+    github_username('dylankb')
+  end
 end
