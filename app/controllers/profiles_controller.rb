@@ -9,17 +9,12 @@ class ProfilesController < ApplicationController
   def create
     @user = current_user
     @profile = Profile.new(profile_params)
-    # binding.pry
     if @user.profile = @profile
       flash[:notice] = "Profile saved!"
       redirect_to root_path
     else
       render :new
     end
-  end
-
-  def index
-    @profiles = Profile.all
   end
 
   def show
