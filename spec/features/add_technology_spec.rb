@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "the adding a technology to a company process" do
+describe "the adding a technology to a company process", :vcr => true do
 
   it "adds a technology", js: true do
     user = FactoryGirl.create(:user)

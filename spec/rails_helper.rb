@@ -82,3 +82,15 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+VCR.configure do |c|
+  c.allow_http_connections_when_no_cassette = true
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+  c.filter_sensitive_data('<github key>') {ENV['GITHUB_KEY']}
+  c.filter_sensitive_data('<twitter consumer key>') {ENV['TWITTER_CONSUMER_KEY']}
+  c.filter_sensitive_data('<twiiter consumer secret>') {ENV['TWITTER_CONSUMER_SECRET']}
+  c.filter_sensitive_data('<twiiter access token>') {ENV['TWITTER_ACCESS_TOKEN']}
+  c.filter_sensitive_data('<twiiter access token secret>') {ENV['TWITTER_ACCESS_TOKEN_SECRET']}
+end

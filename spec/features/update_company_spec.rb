@@ -1,4 +1,4 @@
-describe "the process of updating a company", js: true do
+describe "the process of updating a company" do
   it "updates a company", js: true do
     user = FactoryGirl.create(:user)
     visit log_in_path

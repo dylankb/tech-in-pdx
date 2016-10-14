@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "the adds a profile process" do
-  it "adds a profile" do
+  it "adds a profile", :vcr => true do
     user = FactoryGirl.create(:user)
     visit root_path
     click_link "Log In"

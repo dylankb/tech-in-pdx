@@ -31,7 +31,7 @@ describe "the adding a company process" do
     expect(page).to have_content 'errors'
   end
 
-  it "adds a twitter count from a twitter handle" do
+  it "adds a twitter count from a twitter handle", :vcr => true do
     user = FactoryGirl.create(:user)
     visit root_path
     click_link "Log In"

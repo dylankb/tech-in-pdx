@@ -22,5 +22,8 @@
 # Ignore environment variables
 .env
 
-# Ignore MacOS files
+# Ignore unnecessary MacOS files
 .DS_Store
+
+# Ignore cached web-requests
+spec/cassettes
