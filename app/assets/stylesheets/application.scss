@@ -19,6 +19,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  background: rgba(41,79,117,0.5);
+}
+
 .btn {
   margin-bottom: 15px;
 }
@@ -30,6 +34,7 @@ a {
   margin-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 0px;
+  border-radius: 0px;
 }
 
 .navbar-default {
@@ -95,7 +100,7 @@ a {
 .ctas {
   text-align: center;
   padding-top: 60px;
-  padding-bottom: 400px;
+  padding-bottom: 600px;
 }
 
 .background-img .cta-button {
@@ -156,4 +161,11 @@ a {
 
 .account-forms {
   margin-top: 80px;
+}
+
+@media (max-width: 680px) {
+  .background-img .cta-button {
+    display: block;
+    margin: 0 5px 40px 5px;
+  }
 }
