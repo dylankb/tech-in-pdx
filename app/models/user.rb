@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
   attr_accessor :password
   validates_confirmation_of :password
 
+  validates_format_of :email, :with => /@/
+
   before_save :encrypt_password
+  before_create :generate_confirmation_token
 
   include BCrypt
   validates :email, :presence => true
@@ -20,6 +23,14 @@ class User < ActiveRecord::Base
       user
     else
       nil
+    end
+  end
+
+  private
+
+  def generate_confirmation_token
+    if self.confirmation_token.blank?
+      self.confirmation_token = SecureRandom.urlsafe_base64.to_s
     end
   end
 

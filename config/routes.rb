@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :companies
   resources :locations
   resources :technologies, :only => [:show]
-  resources :users
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
   resources :profiles
   get "/pages/:page" => "pages#show"
 

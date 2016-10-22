@@ -7,9 +7,15 @@ class SessionsController < ApplicationController
   def create
     @user = User.authenticate(params["/log-in"][:email], params["/log-in"][:password])
     if @user
-      flash[:notice] = "You've logged in!"
-      session[:user_id] = @user.id
-      redirect_to root_path
+      if @user.email_confirmed == false
+        flash[:notice] = "Please confirm your account by clicking the link in your email"
+        redirect_to root_path
+      else
+        @user.email_confirmed == true
+        flash[:notice] = "You've logged in!"
+        session[:user_id] = @user.id
+        redirect_to root_path
+      end
     else
       flash[:alert] = "There was a problem with your username or password. Try again."
       redirect_to log_in_path
