@@ -3,5 +3,3 @@ Hi,
 Thanks for registering! To confirm your registration click the URL below.
 
 <%= link_to "Confirm your account", "localhost:3000/users/#{@user.id}/confirm_email?token=#{@user.confirmation_token}" %>
-
-Text
