@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   resources :locations
   resources :technologies, :only => [:show]
   resources :users do
-    member do
-      get :confirm_email
-    end
+    get :confirm_email, on: :member
   end
   resources :profiles
   get "/pages/:page" => "pages#show"

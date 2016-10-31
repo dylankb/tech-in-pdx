@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates_format_of :email, :with => /@/
 
-  before_save :encrypt_password
+  before_create :encrypt_password
   before_create :generate_confirmation_token
 
   include BCrypt
@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
     else
       nil
     end
+  end
+
+  def email_activate
+    self.confirmation_token = nil
+    self.email_confirmed = true
   end
 
   private

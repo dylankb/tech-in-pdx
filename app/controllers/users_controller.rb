@@ -15,20 +15,16 @@ class UsersController < ApplicationController
   end
 
   def confirm_email
-    @user = User.find_by_confirmation_token(params[:id])
+    @user = User.find_by(confirmation_token: params[:token])
     if @user
-      user.email_activate
-      flash[:success] = "Welcome to Tech-in-PDX. Your email has been confirmed"
-      redirect_to
+      @user.email_activate
+      @user.save
+      flash[:notice] = "Welcome to Tech-in-PDX. Your email has been confirmed"
+      redirect_to root_path
     else
       flash[:alert] = "Sorry. User does not exist"
       redirect_to root_path
     end
-  end
-
-  def email_activate
-    self.email_confirmed = true
-    self.confirmation_token = nil
   end
 
   private
