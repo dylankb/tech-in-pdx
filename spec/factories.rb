@@ -7,6 +7,7 @@ FactoryGirl.define do
   factory(:user) do
     email('me@home.com')
     password('test')
+    email_confirmed(true)
   end
 
   factory(:location) do
