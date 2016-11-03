@@ -8,6 +8,6 @@ describe "the adds a user process" do
     fill_in "Password", :with => "test"
     fill_in "Password confirmation", :with => "test"
     click_on "Sign up"
-    expect(page).to have_content "You created a new account!"
+    expect(page).to have_content "You created a new account! Confirm your acccount by clicking the link in your email"
   end
 end
