@@ -1,6 +1,6 @@
 class CreateOffices < ActiveRecord::Migration[5.0]
   def change
-    create_table :offices do |t|
+    create_table :simple_offices do |t|
       t.string :office_type
       t.string :street_1
       t.string :street_2

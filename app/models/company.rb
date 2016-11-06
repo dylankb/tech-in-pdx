@@ -1,7 +1,8 @@
 class Company < ActiveRecord::Base
   has_and_belongs_to_many :technologies
 
-  has_and_belongs_to_many :locations
+  has_many :offices
+  has_many :locations, through: :offices
 
   validates :name, :presence => true
 
