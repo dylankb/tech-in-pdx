@@ -6,24 +6,23 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
     @technologies = Technology.all
-    @locations = Location.all
+    @office = @company.offices.build
+    @location = @office.build_location
   end
 
   def create
     @technologies = Technology.all
     @company = Company.new(company_params)
+
     if params[:company][:technology_ids]
       params[:company][:technology_ids].each do |id|
         technology = Technology.find(id)
         @company.technologies.push(technology)
       end
     end
-    if params[:company][:location_ids]
-      params[:company][:location_ids].each do |id|
-        location = Location.find(id)
-        @company.locations.push(location)
-      end
-    end
+
+    build_office_locations
+
     respond_to do |format|
       if @company.save
         flash.now[:notice] = "#{@company.name} successfully added!"
@@ -57,14 +56,7 @@ class CompaniesController < ApplicationController
         end
       end
     end
-    if params[:company][:location_ids]
-      params[:company][:location_ids].each do |id|
-        location = Location.find(id)
-        unless @company.locations.include?(location)
-          @company.locations.push(location)
-        end
-      end
-    end
+
     respond_to do |format|
       if @company.update(company_params)
         flash.now[:notice] = @company.name + " updated!"
@@ -83,8 +75,16 @@ class CompaniesController < ApplicationController
     redirect_to companies_path
   end
 
+  def build_office_locations
+    @company.offices.each do |office|
+      office.location = Location.find_or_create_by(city: office.location.city, state: office.location.state)
+    end
+  end
+
 private
   def company_params
-    params.require(:company).permit(:name, :description, :twitter_handle, :technology_ids, :location_ids )
+    params.require(:company).permit(:name, :description, :twitter_handle, :technology_ids,
+    offices_attributes: [:id,
+    location_attributes: [:city, :state]])
   end
 end

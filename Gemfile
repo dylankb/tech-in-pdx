@@ -33,6 +33,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rest-client'
 gem 'bcrypt'
 gem 'twitter'
+gem 'city-state'
 
 
 group :development, :test do

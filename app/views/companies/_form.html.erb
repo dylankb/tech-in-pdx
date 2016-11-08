@@ -20,13 +20,18 @@
       <%= technology.check_box %>
     <% end %>
   </div>
-  <div class="form-group">
-    <%= f.label :locations %>
-    <%= f.collection_check_boxes(:location_ids, Location.all, :id, :city, include_hidden: false) do |location| %>
-      <%= location.label {location.object.city + ", " + location.object.state} %>
-      <%= location.check_box  %>
+  <%= f.fields_for :offices do |office| %>
+    <%= office.fields_for :location do |location| %>
+      <div class="form-group">
+        <%= location.label :state %>
+        <%= location.select(:state, options_for_select(CS.get(:us))) %>
+      </div>
+      <div class="form-group">
+        <%= location.label :city %>
+        <%= location.select(:city, options_for_select(CS.get(:us, :or))) %>
+      </div>
     <% end %>
-  </div>
+  <% end %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <%= f.submit :class => "btn btn-success" %>
 <% end %>

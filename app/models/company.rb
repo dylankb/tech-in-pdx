@@ -1,8 +1,10 @@
 class Company < ActiveRecord::Base
   has_and_belongs_to_many :technologies
 
-  has_many :offices
+  has_many :offices, :inverse_of => :company, :dependent => :destroy
   has_many :locations, through: :offices
+
+  accepts_nested_attributes_for :offices
 
   validates :name, :presence => true
 
