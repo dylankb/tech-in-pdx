@@ -12,8 +12,8 @@
         </div>
         <div class="row">
           <div class="col-xs-6">
-            <% if @company.profile_banner_uri %>
-            <%= image_tag @company.profile_image_uri, id: "profile-image" %>
+            <% if @company.profile_image_uri %>
+              <%= image_tag @company.profile_image_uri, id: "profile-image" %>
             <% end %>
           </div>
           <div class="col-xs-6 center">
@@ -24,7 +24,9 @@
       </div>
       <% if @company.profile_banner_uri %>
       <div class="col-xs-8">
-        <%= image_tag @company.profile_banner_uri, id: "profile-banner" %>
+        <% if @company.profile_banner_uri %>
+          <%= image_tag @company.profile_banner_uri, id: "profile-banner" %>
+        <% end %>
       </div>
       <% end %>
     </div>
