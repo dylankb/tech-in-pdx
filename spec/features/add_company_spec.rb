@@ -13,6 +13,8 @@ describe "the adding a company process" do
     click_link "Explore companies"
     click_link "Add a company"
     fill_in "Name", :with => 'New company'
+    select "OR", :from => "company_offices_attributes_0_location_attributes_state"
+    select "Portland", :from => "cities-of-state"
     click_on "Create Company"
     expect(page).to have_content "New company successfully added!"
   end
@@ -43,6 +45,8 @@ describe "the adding a company process" do
     click_link "Add a company"
     fill_in "Name", :with => 'New company'
     fill_in "Twitter handle", :with => 'epicodus'
+    select "OR", :from => "company_offices_attributes_0_location_attributes_state"
+    select "Portland", :from => "cities-of-state"
     click_on "Create Company"
     expect(page).to have_css('#twitter-followers', :visible => "true")
   end

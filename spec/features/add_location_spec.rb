@@ -15,7 +15,8 @@ describe "the adding a technology to a company process" do
     click_on "Explore companies"
     click_on company.name
     click_on "Edit Details"
-    find(:css, "#company_location_ids_1").set(true)
+    select "OR", :from => "company_offices_attributes_0_location_attributes_state"
+    select "Medford", :from => "cities-of-state"
     click_on "Update Company"
     expect(page).to have_content "updated"
   end
