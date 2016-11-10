@@ -18,6 +18,6 @@
     <% end %>
   </td>
     <td id="<%= company.twitter_follower_count ? 'twitter-followers' : '' %>">
-      <%= company.twitter_follower_count %>
+      <%= number_with_delimiter(company.twitter_follower_count) %>
     </td>
 </tr>

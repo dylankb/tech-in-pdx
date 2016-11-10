@@ -18,7 +18,7 @@
           </div>
           <div class="col-xs-6 center">
             <p><strong>Twitter Followers</strong></p>
-            <p class="follower-count"><%= @company.twitter_follower_count %></p>
+            <p class="follower-count"><%= number_with_delimiter(@company.twitter_follower_count) %></p>
           </div>
         </div>
       </div>
