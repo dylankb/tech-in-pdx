@@ -1,4 +1,4 @@
-class CreateOffices < ActiveRecord::Migration[5.0]
+class CreateSimpleOffices < ActiveRecord::Migration[5.0]
   def change
     create_table :simple_offices do |t|
       t.string :office_type
