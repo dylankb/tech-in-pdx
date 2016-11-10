@@ -10,9 +10,13 @@ Rails.application.routes.draw do
   resources :profiles
   get "/pages/:page" => "pages#show"
 
+  get 'cities/:state', to: 'application#cities'
   # resources :sessions, :as => "log_in", :only => [:new, :create]
   # resources :sessions, :only => [:new, :create]
   get "/log-in" => "sessions#new"
   post "/log-in" => "sessions#create"
   get '/log-out' => 'sessions#destroy', as: :log_out
-end
+end 
+#
+# 1. GET /states/:id => { state: "OR", cities: [ ... ] }
+# 2. GET /cities?state=OR => [...]

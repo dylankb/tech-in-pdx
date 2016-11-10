@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  def cities
+    render json: CS.cities(params[:state], :us).to_json
+  end
+
   def current_user
     begin
       @current_user ||= User.find(session[:user_id]) if session[:user_id]

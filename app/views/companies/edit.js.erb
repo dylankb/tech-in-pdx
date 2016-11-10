@@ -1,1 +1,17 @@
 $('#edit-company-btn').hide().after('<%= j render("form") %>');
+
+$('select[name="company[offices_attributes][0][location_attributes][state]"]').change(function () {
+  var input_state = $(this);
+  var cities_of_state = $('#cities-of-state');
+  $.getJSON('/cities/' + $("option:selected", this).text(), function (data) {
+    cities_of_state.empty();
+    $.each(data, function (index, value) {
+      var opt = '<option value=' + value + '>' + value + '</option>';
+      cities_of_state.append(opt);
+    });
+  });
+});
+
+$(function() {
+  $('select[name="company[offices_attributes][0][location_attributes][state]"]').change();
+});
