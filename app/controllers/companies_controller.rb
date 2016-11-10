@@ -83,7 +83,7 @@ class CompaniesController < ApplicationController
 
 private
   def company_params
-    params.require(:company).permit(:name, :description, :twitter_handle, :technology_ids,
+    params.require(:company).permit(:name, :description, :twitter_handle, :trainings, :technology_ids,
     offices_attributes: [:id,
     location_attributes: [:city, :state]])
   end
