@@ -14,6 +14,10 @@
     <%= f.text_field :twitter_handle, class: "form-control" %>
   </div>
   <div class="form-group">
+    <%= f.label :trainings, "Offers internships?" %>
+    <%= f.check_box :trainings %>
+  </div>
+  <div class="form-group">
     <%= f.label :technologies %>
     <%= f.collection_check_boxes(:technology_ids, Technology.all, :id, :name, include_hidden: false) do |technology| %>
       <%= technology.label %>
