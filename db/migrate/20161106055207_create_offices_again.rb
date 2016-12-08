@@ -1,4 +1,4 @@
-class CreateOffices < ActiveRecord::Migration[5.0]
+class CreateOfficesAgain < ActiveRecord::Migration[5.0]
   def change
     create_table :offices do |t|
       t.references :company, foreign_key: true

@@ -1,5 +1,5 @@
-class DropSimpleOfficesTable < ActiveRecord::Migration[5.0]
+class DropOfficesTable < ActiveRecord::Migration[5.0]
   def change
-    drop_table :simple_offices
+    drop_table :offices
   end
 end

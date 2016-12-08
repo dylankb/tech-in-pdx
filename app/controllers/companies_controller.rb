@@ -11,17 +11,9 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @technologies = Technology.all
     @company = Company.new(company_params)
-
-    if params[:company][:technology_ids]
-      params[:company][:technology_ids].each do |id|
-        technology = Technology.find(id)
-        @company.technologies.push(technology)
-      end
-    end
-
-    build_office_locations
+    find_location_if_exists
+    find_technologies_if_any
 
     respond_to do |format|
       if @company.save
@@ -75,7 +67,16 @@ class CompaniesController < ApplicationController
     redirect_to companies_path
   end
 
-  def build_office_locations
+  def find_technologies_if_any
+    if params[:company][:technology_ids]
+      params[:company][:technology_ids].each do |id|
+        technology = Technology.find(id)
+        @company.technologies.push(technology)
+      end
+    end
+  end
+
+  def find_location_if_exists
     @company.offices.each do |office|
       office.location = Location.find_or_create_by(city: office.location.city, state: office.location.state)
     end
