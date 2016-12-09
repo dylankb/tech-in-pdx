@@ -32,7 +32,7 @@ class Company < ActiveRecord::Base
   end
 
   def twitter_handle?
-    !self.twitter_handle.empty?
+    !self.twitter_handle.blank?
   end
 
   def regular_image_size(uri)
