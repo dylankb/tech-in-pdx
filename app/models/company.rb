@@ -6,6 +6,7 @@ class Company < ActiveRecord::Base
 
   accepts_nested_attributes_for :offices
 
+  validates_inclusion_of :trainings, :in => [true, false]
   validates :name, :presence => true
 
   before_create :twitter_api_call, if: :twitter_handle?
