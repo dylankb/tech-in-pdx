@@ -9,7 +9,8 @@
       <p>Hi,</p>
       <p>Thanks for registering! To confirm your registration click the URL below.</p>
 
-      <%= link_to "Confirm your account", "/users/#{@user.id}/confirm_email?token=#{@user.confirmation_token}" %>
+      <%= link_to "Confirm your account", confirm_email_user_url(@user, { token: @user.confirmation_token }) %>
+
     </p>
   </body>
 </html>
